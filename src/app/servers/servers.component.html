@@ -23,9 +23,10 @@
     class="btn btn-primary" 
     [disabled]="!allowNewServer"
     (click)="onCreateServer()">Add Server</button>
+
 <!-- property binding vs string interpolation -->
 <!-- <p> {{allowNewServer}} </p> -->
-<p [innerText]="allowNewServer"></p>
+<!-- <p [innerText]="allowNewServer"></p> -->
 <!-- <p>{{ serverCreationStatus }}</p> -->
 <p *ngIf="serverCreated; else noServer">Server was created! Server name is {{ serverName }}</p>
 <ng-template #noServer>
@@ -33,3 +34,17 @@
 </ng-template>
 <!-- USing selector components -->
 <app-server *ngFor="let server of servers"></app-server>
+<hr>
+<!-- <button
+    class="btn btn-primary"
+    (click)="displayData = !displayData">Display Details</button> -->
+<button
+    class="btn btn-primary"
+    (click)="onToggleDisplay()">Display Details</button>
+<p *ngIf="displayData">Secret Password = tuna</p>
+<div *ngFor="let logClick of buttonClicksLog"
+    [ngStyle]="{backgroundColor: logClick >= 5 ? 'blue' : 'transparent'}"
+    [ngClass]="{'white-text': logClick >= 5}">Button Click # {{ logClick}}
+    </div>
+<!-- <p [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{online: serverStatus ==='online'}">{{'Server'}} with ID {{ serverID }} is {{ getServerStatus() }}</p> -->
+
