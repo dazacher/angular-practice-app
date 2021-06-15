@@ -41,6 +41,7 @@ export class ServersComponent implements OnInit {
 
   onToggleDisplay(){
     this.displayData = !this.displayData;
-    this.buttonClicksLog.push(this.buttonClicksLog.length + 1);
+    // this.buttonClicksLog.push(this.buttonClicksLog.length + 1);
+    this.buttonClicksLog.push(new Date());
   }
 }

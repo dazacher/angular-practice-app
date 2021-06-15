@@ -42,9 +42,13 @@
     class="btn btn-primary"
     (click)="onToggleDisplay()">Display Details</button>
 <p *ngIf="displayData">Secret Password = tuna</p>
-<div *ngFor="let logClick of buttonClicksLog"
+<!-- <div *ngFor="let logClick of buttonClicksLog"
     [ngStyle]="{backgroundColor: logClick >= 5 ? 'blue' : 'transparent'}"
     [ngClass]="{'white-text': logClick >= 5}">Button Click # {{ logClick}}
+    </div> -->
+    <div *ngFor="let logClick of buttonClicksLog; let i = index"
+    [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+    [ngClass]="{'white-text': i >= 4}">Button Click # {{ logClick}}
     </div>
 <!-- <p [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{online: serverStatus ==='online'}">{{'Server'}} with ID {{ serverID }} is {{ getServerStatus() }}</p> -->
 
